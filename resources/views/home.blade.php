@@ -13,7 +13,7 @@
 
         <div class="header__profile">
             <div class="header__top">
-                <h2 class="header__username">seyedmahdii_</h2>
+                <h2 class="header__username">{{ $user->username }}</h2>
                 <div class="header__btn-container">
                     <a class="btn btn-bordered btn-bordered-default">
                         Edit Profile
@@ -47,14 +47,12 @@
             </div>
 
             <div class="header__info">
-                <h1 class="header__name">Seyed Mahdi Jalali</h1>
+                <h1 class="header__name">{{ $user->profile->title }}</h1>
                 <span class="header__description">
-                    Web developer Forgot to die behind my pc👨‍💻
-                    <br />
-                    Learned to strengthen my land in my head🛀
+                    {{ $user->profile->description }}
                 </span>
-                <a href="#" class="header__url">
-                    seyedmahdijalali.ir
+                <a href={{ $user->profile->url }} class="header__url">
+                    {{ $user->profile->url }}
                 </a>
             </div>
         </div>
