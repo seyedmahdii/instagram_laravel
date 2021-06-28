@@ -20,6 +20,7 @@
                     </a>
                     {{-- <SettingsIcon class="header__settings-btn" /> --}}
                     settings icon
+                    <a href="/post/create">New post</a>
                 </div>
             </div>
 
