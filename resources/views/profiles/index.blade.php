@@ -27,7 +27,7 @@
             <div class="header__follow">
                 <div class="header__follow-item">
                     <span class="header__data header__posts">
-                        11
+                        {{ $user->posts->count() }}
                     </span>
                     posts
                 </div>
@@ -62,23 +62,15 @@
 
 <div class="posts">
     <div class="container posts-container">
-        <div class="post">
-            <div class="post__wrapper">
-                <img src="{{ asset("images/post1.jpg") }}" alt="caption" class="post__image" />
+        @foreach ($user->posts as $post)
+            <div class="post">
+                <div class="post__wrapper">
+                    <a href="">
+                        <img src="{{ asset("uploads/$post->image") }}" alt="{{ $post->caption }}" class="post__image" />
+                    </a>
+                </div>
             </div>
-        </div>
-
-        <div class="post">
-            <div class="post__wrapper">
-                <img src="{{ asset("images/post2.jpg") }}" alt="caption" class="post__image" />
-            </div>
-        </div>
-
-        <div class="post">
-            <div class="post__wrapper">
-                <img src="{{ asset("images/post3.jpg") }}" alt="caption" class="post__image" />
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection
