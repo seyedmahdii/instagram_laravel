@@ -65,7 +65,7 @@
         @foreach ($user->posts as $post)
             <div class="post">
                 <div class="post__wrapper">
-                    <a href="">
+                    <a href="/post/{{ $post->id }}">
                         <img src="{{ asset("uploads/$post->image") }}" alt="{{ $post->caption }}" class="post__image" />
                     </a>
                 </div>
