@@ -14,4 +14,29 @@ class ProfilesController extends Controller
             "user" => $user
         ]);
     }
+
+    public function edit(User $user){
+        return view("profiles.edit", compact("user"));
+    }
+
+    public function update(User $user){
+        request()->validate([
+            "url" => "url",
+            "image" => "image | mimes:png,jpg,jpeg | max:5048"
+        ]);
+
+        if(request()->image){
+            $newImageName = time() . "-" . $user->username . "-" .request()->image->extension();
+            request()->image->move(public_path("uploads"), $newImageName);
+        }
+
+        $user->profile->update([
+            "title" => request()->input("title"),
+            "description" => request()->input("description"),
+            "url" => request()->input("url"),
+            "image" => $newImageName ?? $user->profile->image
+        ]);
+
+        return redirect("/profile/" . auth()->user()->id);
+    }
 }
