@@ -23,6 +23,9 @@ class User extends Authenticatable
         'password',
     ];
 
+    protected $table = "users";
+    protected $primaryKey = "id";
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -41,6 +44,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected static function boot(){
+        parent::boot();
+
+        static::created(function ($user){
+            $user->profile()->create([
+                "image" => "defaultUserIcon.png"
+            ]);
+        });
+    }
 
     public function profile(){
         return $this->hasOne(Profile::class);

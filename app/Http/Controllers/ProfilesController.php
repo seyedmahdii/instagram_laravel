@@ -16,10 +16,14 @@ class ProfilesController extends Controller
     }
 
     public function edit(User $user){
+        $this->authorize("update", $user->profile);
+        
         return view("profiles.edit", compact("user"));
     }
 
     public function update(User $user){
+        $this->authorize("update", $user->profile);
+
         request()->validate([
             "url" => "url",
             "image" => "image | mimes:png,jpg,jpeg | max:5048"
@@ -37,6 +41,6 @@ class ProfilesController extends Controller
             "image" => $newImageName ?? $user->profile->image
         ]);
 
-        return redirect("/profile/" . auth()->user()->id);
+        return redirect("/profile/" . $user->id);
     }
 }

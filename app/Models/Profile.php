@@ -12,7 +12,7 @@ class Profile extends Model
     protected $table = "profiles";
     protected $primaryKey = "id";
 
-    protected $fillable = ["title", "description", "url", "image"];
+    protected $fillable = ["title", "description", "url", "image", "user_id"];
 
     public function user(){
         return $this->belongsTo(User::class);

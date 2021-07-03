@@ -15,12 +15,13 @@
                         {{ $user->username }}
                     </h1>
                 </div>
-                @if (auth()->user()->id == $user->id)
+                
+                @can('update', $user->profile)
                     <div>
                         <a href="/post/create">New Post</a>
                         <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
                     </div>
-                @endif
+                @endcan
             </div>
 
             <div class="d-flex">
