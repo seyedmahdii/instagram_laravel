@@ -1983,25 +1983,25 @@ function FollowButton(props) {
             case 3:
               _yield$axios$post = _context.sent;
               data = _yield$axios$post.data;
+              // console.log(data);
               setFollows(!follows);
-              console.log(data);
-              _context.next = 12;
+              _context.next = 11;
               break;
 
-            case 9:
-              _context.prev = 9;
+            case 8:
+              _context.prev = 8;
               _context.t0 = _context["catch"](0);
 
               if (_context.t0.response.status == 401) {
                 window.location = "/login";
               }
 
-            case 12:
+            case 11:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[0, 9]]);
+      }, _callee, null, [[0, 8]]);
     }));
 
     return function followUser() {
@@ -2011,7 +2011,7 @@ function FollowButton(props) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-      className: "btn btn-primary ml-3",
+      className: "btn ml-3 ".concat(follows ? "btn-outline-danger" : "btn-primary"),
       onClick: followUser,
       children: follows ? "Unfollow" : "Follow"
     })

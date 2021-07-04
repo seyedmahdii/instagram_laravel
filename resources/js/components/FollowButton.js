@@ -9,8 +9,8 @@ function FollowButton(props) {
     const followUser = async () => {
         try {
             const { data } = await axios.post(`/follow/${user_id}`);
+            // console.log(data);
             setFollows(!follows);
-            console.log(data);
         } catch (error) {
             if (error.response.status == 401) {
                 window.location = "/login";
@@ -20,7 +20,12 @@ function FollowButton(props) {
 
     return (
         <>
-            <button className="btn btn-primary ml-3" onClick={followUser}>
+            <button
+                className={`btn ml-3 ${
+                    follows ? `btn-outline-danger` : `btn-primary`
+                }`}
+                onClick={followUser}
+            >
                 {follows ? `Unfollow` : `Follow`}
             </button>
         </>
