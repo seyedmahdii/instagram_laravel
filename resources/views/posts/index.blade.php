@@ -8,7 +8,7 @@
                 <div class="d-flex align-items-center mb-3">
                     <a href="/profile/{{ $post->user->id }}" class="text-dark">
                         <img src="{{ asset("uploads/".$post->user->profile->image) }}" 
-                            alt="profile photo" style="height: 50px; width:50px; border-radius: 50%;">
+                            alt="profile photo" style="height: 45px; width:45px; border-radius: 50%;">
                     </a>
 
                     <a href="/profile/{{ $post->user->id }}" class="text-dark">
