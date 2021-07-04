@@ -11,9 +11,12 @@
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline mb-3">
                 <div class="d-flex align-items-center">
-                    <h1>
+                    <div class="h4">
                         {{ $user->username }}
-                    </h1>
+                    </div>
+                    <div>
+                        <div id="follow-wrapper" data-user_id="{{$user->id}}" data-follows="{{ $follows }}" >{{ $follows }}</div>
+                    </div>
                 </div>
                 
                 @can('update', $user->profile)
@@ -29,10 +32,10 @@
                     <b>{{ $user->posts->count() }}</b> posts
                 </div>
                 <div class="pr-5">
-                    <b>44</b> followers
+                    <b>{{ $user->profile->followers->count() }}</b> followers
                 </div>
                 <div class="pr-5">
-                    <b>34</b> following
+                    <b>{{ $user->following->count() }}</b> following
                 </div>
             </div>
             
