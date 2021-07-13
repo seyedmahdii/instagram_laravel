@@ -1,3 +1,3 @@
 # instagram_laravel
 
-Instagram App Powered with Laravel
+Instagram App Powered by Laravel
